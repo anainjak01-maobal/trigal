@@ -99,7 +99,11 @@
 
   function cargarTodo() {
     return enviar("listar").then(function (r) {
-      if (!r.ok) { msg($("g-msg"), r.error || "No pude cargar los datos.", "error"); return; }
+      if (!r.ok) {
+        msg($("g-msg"), r.error || "No pude cargar los datos.", "error");
+        $("grafico").innerHTML = '<p class="msg error">' + esc(r.error || "No pude cargar los datos.") + "</p>";
+        return;
+      }
       datos = (r.datos || []).map(function (d) {
         return {
           fase: d.fase, fecha: d.fecha, dia: d.dia, producto: d.producto,
