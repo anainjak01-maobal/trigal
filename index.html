@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>El Trigal · Registro de producción</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=DM+Sans:wght@400;500;700&display=swap"/>
+<link rel="stylesheet" href="app.css?v=1"/>
+</head>
+<body>
+
+<header class="cab">
+  <div class="wrap cab-fila">
+    <div class="marca">
+      <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path d="M12 22V6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M12 10c-3-1-4-3.5-4-6 2.5.3 4 2 4 6zm0 0c3-1 4-3.5 4-6-2.5.3-4 2-4 6zm0 5c-3-1-4-3.5-4-6 2.5.3 4 2 4 6zm0 0c3-1 4-3.5 4-6-2.5.3-4 2-4 6z" fill="currentColor"/></svg>
+      <div>
+        <p class="kicker">Panadería El Trigal · uso interno del equipo</p>
+        <h1 id="titulo">Entrar</h1>
+      </div>
+    </div>
+    <nav class="pestanas" id="barra" hidden>
+      <button type="button" data-vista="panel">Panel</button>
+      <button type="button" data-vista="registrar">Registrar</button>
+      <button type="button" data-vista="registros">Registros</button>
+      <button type="button" id="salir">Salir</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section id="vista-acceso" class="acceso">
+  <div class="tarjeta-acceso">
+    <p class="acceso-texto">Registra cada día lo que se horneó y lo que sobró. El panel compara la línea base de agosto con la prueba del horno nuevo.</p>
+    <form id="acc-form" autocomplete="off">
+      <label class="campo">Clave del equipo
+        <input type="password" id="clave" required/>
+      </label>
+      <button class="btn primario" type="submit" id="acc-btn">Entrar</button>
+      <p class="msg" id="acc-msg" role="status"></p>
+    </form>
+  </div>
+</section>
+
+<section id="vista-panel" hidden>
+  <section class="bloque">
+    <div class="encabezado">
+      <h2>Cuánto sobra por día</h2>
+      <p>Comparamos el promedio por día, no el total. La línea base tiene 19 días y la prueba, 6.</p>
+    </div>
+    <div class="duelo" id="duelo"></div>
+    <p class="nota" id="duelo-nota"></p>
+  </section>
+
+  <section class="bloque">
+    <div class="encabezado">
+      <h2>Sobrante por producto</h2>
+      <p>Unidades que sobraron por día, en promedio. Cada barra es un producto.</p>
+    </div>
+    <div class="panel tarjeta-grafico" id="grafico"></div>
+  </section>
+
+  <section class="bloque">
+    <div class="encabezado">
+      <h2>Por producto</h2>
+      <p>Cuántas veces se acabó, de cuántos días. Un producto que se acaba muchas veces puede estar faltando.</p>
+    </div>
+    <div class="tabla-wrap" id="tabla-producto"></div>
+  </section>
+
+  <section class="bloque">
+    <div class="encabezado">
+      <h2>Línea base por día de la semana</h2>
+      <p>Solo la línea base tiene todos los días. En la prueba no hay lunes, así que esa columna no se compara.</p>
+    </div>
+    <div class="tabla-wrap" id="tabla-semana"></div>
+  </section>
+
+  <section class="bloque">
+    <div class="encabezado">
+      <h2>Lo que este panel no puede decir</h2>
+    </div>
+    <ul class="limites">
+      <li>No se anotó la hora de cada venta, así que no se sabe cuándo se agotó cada producto.</li>
+      <li>No se contó cuánta gente preguntó cuando ya no había: la venta perdida no se mide.</li>
+      <li>Seis días de prueba no alcanzan para afirmar una tendencia. Es una señal, no una conclusión.</li>
+      <li>El costo es el del insumo que sobró, no el precio de venta ni la ganancia.</li>
+    </ul>
+  </section>
+</section>
+
+<section id="vista-registrar" hidden>
+  <div class="encabezado">
+    <h2>Registrar un día</h2>
+    <p>Un registro por producto y por día. Si ya existe la misma fecha y producto, se actualiza. Vendidos, costo y si se acabó se calculan solos.</p>
+  </div>
+  <form id="r-form" class="panel formulario" autocomplete="off">
+    <div class="rejilla">
+      <label class="campo">Fecha <input type="date" id="r-fecha" min="2026-08-11" max="2026-12-31" required/></label>
+      <label class="campo">Producto
+        <select id="r-producto" required>
+          <option value="">Elige</option>
+          <option>Pan blanco</option>
+          <option>Pan de queso</option>
+          <option>Pastelito</option>
+          <option>Almojábana</option>
+        </select>
+      </label>
+      <label class="campo">Horneados <input type="number" id="r-horneados" min="0" max="300" step="1" required/></label>
+      <label class="campo">Sobraron <input type="number" id="r-sobraron" min="0" max="300" step="1" required/></label>
+    </div>
+    <div class="vista-previa" id="r-previa" aria-live="polite"></div>
+    <div class="acciones">
+      <button class="btn primario" type="submit" id="r-guardar">Guardar</button>
+      <button class="btn" type="button" id="r-limpiar">Limpiar</button>
+      <p class="msg" id="r-msg" role="status"></p>
+    </div>
+  </form>
+</section>
+
+<section id="vista-registros" hidden>
+  <div class="encabezado"><h2>Registros</h2><p id="g-resumen"></p></div>
+  <p class="msg" id="g-msg" role="status"></p>
+  <div class="tabla-wrap">
+    <table class="tabla">
+      <thead><tr><th>Fecha</th><th>Día</th><th>Producto</th><th class="n">Horneados</th><th class="n">Sobraron</th><th>Se acabó</th><th></th></tr></thead>
+      <tbody id="tbody-registros"></tbody>
+    </table>
+  </div>
+</section>
+
+<p class="pie">El Trigal · I.E. N.º 6 Jorge Arrieta · uso interno</p>
+</main>
+
+<script src="config.js?v=1"></script>
+<script src="app.js?v=1"></script>
+</body>
+</html>

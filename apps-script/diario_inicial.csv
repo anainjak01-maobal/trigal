@@ -1,0 +1,101 @@
+Fase;Fecha;Día;Producto;Horneados;Vendidos;Sobraron;Se acabó;Costo de lo que sobró;Actualizado
+Línea base;2026-08-11;Martes;Pan blanco;40;40;0;Sí;0;2026-10-20 00:00
+Línea base;2026-08-11;Martes;Pan de queso;25;24;1;No;700;2026-10-20 00:00
+Línea base;2026-08-11;Martes;Pastelito;20;20;0;Sí;0;2026-10-20 00:00
+Línea base;2026-08-11;Martes;Almojábana;15;8;7;No;4200;2026-10-20 00:00
+Línea base;2026-08-12;Miércoles;Pan blanco;40;35;5;No;2000;2026-10-20 00:00
+Línea base;2026-08-12;Miércoles;Pan de queso;25;23;2;No;1400;2026-10-20 00:00
+Línea base;2026-08-12;Miércoles;Pastelito;20;20;0;Sí;0;2026-10-20 00:00
+Línea base;2026-08-12;Miércoles;Almojábana;15;8;7;No;4200;2026-10-20 00:00
+Línea base;2026-08-13;Jueves;Pan blanco;40;31;9;No;3600;2026-10-20 00:00
+Línea base;2026-08-13;Jueves;Pan de queso;25;22;3;No;2100;2026-10-20 00:00
+Línea base;2026-08-13;Jueves;Pastelito;20;20;0;Sí;0;2026-10-20 00:00
+Línea base;2026-08-13;Jueves;Almojábana;15;7;8;No;4800;2026-10-20 00:00
+Línea base;2026-08-14;Viernes;Pan blanco;40;21;19;No;7600;2026-10-20 00:00
+Línea base;2026-08-14;Viernes;Pan de queso;25;18;7;No;4900;2026-10-20 00:00
+Línea base;2026-08-14;Viernes;Pastelito;20;14;6;No;5400;2026-10-20 00:00
+Línea base;2026-08-14;Viernes;Almojábana;15;6;9;No;5400;2026-10-20 00:00
+Línea base;2026-08-17;Lunes;Pan blanco;40;40;0;Sí;0;2026-10-20 00:00
+Línea base;2026-08-17;Lunes;Pan de queso;25;24;1;No;700;2026-10-20 00:00
+Línea base;2026-08-17;Lunes;Pastelito;20;20;0;Sí;0;2026-10-20 00:00
+Línea base;2026-08-17;Lunes;Almojábana;15;9;6;No;3600;2026-10-20 00:00
+Línea base;2026-08-18;Martes;Pan blanco;40;38;2;No;800;2026-10-20 00:00
+Línea base;2026-08-18;Martes;Pan de queso;25;25;0;Sí;0;2026-10-20 00:00
+Línea base;2026-08-18;Martes;Pastelito;20;20;0;Sí;0;2026-10-20 00:00
+Línea base;2026-08-18;Martes;Almojábana;15;8;7;No;4200;2026-10-20 00:00
+Línea base;2026-08-19;Miércoles;Pan blanco;40;36;4;No;1600;2026-10-20 00:00
+Línea base;2026-08-19;Miércoles;Pan de queso;25;23;2;No;1400;2026-10-20 00:00
+Línea base;2026-08-19;Miércoles;Pastelito;20;20;0;Sí;0;2026-10-20 00:00
+Línea base;2026-08-19;Miércoles;Almojábana;15;8;7;No;4200;2026-10-20 00:00
+Línea base;2026-08-20;Jueves;Pan blanco;40;33;7;No;2800;2026-10-20 00:00
+Línea base;2026-08-20;Jueves;Pan de queso;25;22;3;No;2100;2026-10-20 00:00
+Línea base;2026-08-20;Jueves;Pastelito;20;18;2;No;1800;2026-10-20 00:00
+Línea base;2026-08-20;Jueves;Almojábana;15;7;8;No;4800;2026-10-20 00:00
+Línea base;2026-08-21;Viernes;Pan blanco;40;24;16;No;6400;2026-10-20 00:00
+Línea base;2026-08-21;Viernes;Pan de queso;25;18;7;No;4900;2026-10-20 00:00
+Línea base;2026-08-21;Viernes;Pastelito;20;16;4;No;3600;2026-10-20 00:00
+Línea base;2026-08-21;Viernes;Almojábana;15;6;9;No;5400;2026-10-20 00:00
+Línea base;2026-08-24;Lunes;Pan blanco;40;40;0;Sí;0;2026-10-20 00:00
+Línea base;2026-08-24;Lunes;Pan de queso;25;23;2;No;1400;2026-10-20 00:00
+Línea base;2026-08-24;Lunes;Pastelito;20;20;0;Sí;0;2026-10-20 00:00
+Línea base;2026-08-24;Lunes;Almojábana;15;10;5;No;3000;2026-10-20 00:00
+Línea base;2026-08-25;Martes;Pan blanco;40;40;0;Sí;0;2026-10-20 00:00
+Línea base;2026-08-25;Martes;Pan de queso;25;25;0;Sí;0;2026-10-20 00:00
+Línea base;2026-08-25;Martes;Pastelito;20;20;0;Sí;0;2026-10-20 00:00
+Línea base;2026-08-25;Martes;Almojábana;15;9;6;No;3600;2026-10-20 00:00
+Línea base;2026-08-26;Miércoles;Pan blanco;40;34;6;No;2400;2026-10-20 00:00
+Línea base;2026-08-26;Miércoles;Pan de queso;25;22;3;No;2100;2026-10-20 00:00
+Línea base;2026-08-26;Miércoles;Pastelito;20;20;0;Sí;0;2026-10-20 00:00
+Línea base;2026-08-26;Miércoles;Almojábana;15;8;7;No;4200;2026-10-20 00:00
+Línea base;2026-08-27;Jueves;Pan blanco;40;32;8;No;3200;2026-10-20 00:00
+Línea base;2026-08-27;Jueves;Pan de queso;25;21;4;No;2800;2026-10-20 00:00
+Línea base;2026-08-27;Jueves;Pastelito;20;20;0;Sí;0;2026-10-20 00:00
+Línea base;2026-08-27;Jueves;Almojábana;15;8;7;No;4200;2026-10-20 00:00
+Línea base;2026-08-28;Viernes;Pan blanco;40;22;18;No;7200;2026-10-20 00:00
+Línea base;2026-08-28;Viernes;Pan de queso;25;17;8;No;5600;2026-10-20 00:00
+Línea base;2026-08-28;Viernes;Pastelito;20;15;5;No;4500;2026-10-20 00:00
+Línea base;2026-08-28;Viernes;Almojábana;15;5;10;No;6000;2026-10-20 00:00
+Línea base;2026-08-31;Lunes;Pan blanco;40;40;0;Sí;0;2026-10-20 00:00
+Línea base;2026-08-31;Lunes;Pan de queso;25;24;1;No;700;2026-10-20 00:00
+Línea base;2026-08-31;Lunes;Pastelito;20;20;0;Sí;0;2026-10-20 00:00
+Línea base;2026-08-31;Lunes;Almojábana;15;9;6;No;3600;2026-10-20 00:00
+Línea base;2026-09-01;Martes;Pan blanco;40;37;3;No;1200;2026-10-20 00:00
+Línea base;2026-09-01;Martes;Pan de queso;25;23;2;No;1400;2026-10-20 00:00
+Línea base;2026-09-01;Martes;Pastelito;20;18;2;No;1800;2026-10-20 00:00
+Línea base;2026-09-01;Martes;Almojábana;15;8;7;No;4200;2026-10-20 00:00
+Línea base;2026-09-02;Miércoles;Pan blanco;40;36;4;No;1600;2026-10-20 00:00
+Línea base;2026-09-02;Miércoles;Pan de queso;25;22;3;No;2100;2026-10-20 00:00
+Línea base;2026-09-02;Miércoles;Pastelito;20;20;0;Sí;0;2026-10-20 00:00
+Línea base;2026-09-02;Miércoles;Almojábana;15;7;8;No;4800;2026-10-20 00:00
+Línea base;2026-09-03;Jueves;Pan blanco;40;30;10;No;4000;2026-10-20 00:00
+Línea base;2026-09-03;Jueves;Pan de queso;25;21;4;No;2800;2026-10-20 00:00
+Línea base;2026-09-03;Jueves;Pastelito;20;20;0;Sí;0;2026-10-20 00:00
+Línea base;2026-09-03;Jueves;Almojábana;15;8;7;No;4200;2026-10-20 00:00
+Línea base;2026-09-04;Viernes;Pan blanco;40;23;17;No;6800;2026-10-20 00:00
+Línea base;2026-09-04;Viernes;Pan de queso;25;19;6;No;4200;2026-10-20 00:00
+Línea base;2026-09-04;Viernes;Pastelito;20;13;7;No;6300;2026-10-20 00:00
+Línea base;2026-09-04;Viernes;Almojábana;15;6;9;No;5400;2026-10-20 00:00
+Prueba;2026-10-06;Martes;Pan blanco;40;40;0;Sí;0;2026-10-20 00:00
+Prueba;2026-10-06;Martes;Pan de queso;24;23;1;No;700;2026-10-20 00:00
+Prueba;2026-10-06;Martes;Pastelito;24;24;0;Sí;0;2026-10-20 00:00
+Prueba;2026-10-06;Martes;Almojábana;10;9;1;No;600;2026-10-20 00:00
+Prueba;2026-10-07;Miércoles;Pan blanco;36;34;2;No;800;2026-10-20 00:00
+Prueba;2026-10-07;Miércoles;Pan de queso;23;22;1;No;700;2026-10-20 00:00
+Prueba;2026-10-07;Miércoles;Pastelito;24;22;2;No;1800;2026-10-20 00:00
+Prueba;2026-10-07;Miércoles;Almojábana;10;8;2;No;1200;2026-10-20 00:00
+Prueba;2026-10-08;Jueves;Pan blanco;32;30;2;No;800;2026-10-20 00:00
+Prueba;2026-10-08;Jueves;Pan de queso;22;21;1;No;700;2026-10-20 00:00
+Prueba;2026-10-08;Jueves;Pastelito;24;21;3;No;2700;2026-10-20 00:00
+Prueba;2026-10-08;Jueves;Almojábana;10;8;2;No;1200;2026-10-20 00:00
+Prueba;2026-10-09;Viernes;Pan blanco;24;22;2;No;800;2026-10-20 00:00
+Prueba;2026-10-09;Viernes;Pan de queso;18;17;1;No;700;2026-10-20 00:00
+Prueba;2026-10-09;Viernes;Pastelito;16;15;1;No;900;2026-10-20 00:00
+Prueba;2026-10-09;Viernes;Almojábana;8;6;2;No;1200;2026-10-20 00:00
+Prueba;2026-10-13;Martes;Pan blanco;40;39;1;No;400;2026-10-20 00:00
+Prueba;2026-10-13;Martes;Pan de queso;24;24;0;Sí;0;2026-10-20 00:00
+Prueba;2026-10-13;Martes;Pastelito;24;24;0;Sí;0;2026-10-20 00:00
+Prueba;2026-10-13;Martes;Almojábana;10;10;0;Sí;0;2026-10-20 00:00
+Prueba;2026-10-14;Miércoles;Pan blanco;36;36;0;Sí;0;2026-10-20 00:00
+Prueba;2026-10-14;Miércoles;Pan de queso;23;21;2;No;1400;2026-10-20 00:00
+Prueba;2026-10-14;Miércoles;Pastelito;24;24;0;Sí;0;2026-10-20 00:00
+Prueba;2026-10-14;Miércoles;Almojábana;10;9;1;No;600;2026-10-20 00:00

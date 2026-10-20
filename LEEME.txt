@@ -1,0 +1,25 @@
+EL TRIGAL · REGISTRO DE PRODUCCIÓN
+Módulo de la app web para el equipo. Panadería El Trigal · I.E. N.º 6 Jorge Arrieta · Ficha 3299150
+
+QUÉ ES
+Una página para registrar cada día cuánto se horneó y cuánto sobró de cada producto. El panel compara la línea base (11 de agosto al 4 de septiembre, 19 días) con la prueba del horno nuevo (desde el 6 de octubre), por promedio por día.
+
+QUÉ GUARDA
+- Fase, fecha, día, producto, horneados y sobraron.
+- Vendidos, si se acabó y el costo del sobrante se calculan solos.
+- Costo por unidad: Pan blanco $400, Pan de queso $700, Pastelito $900, Almojábana $600 (en Codigo.gs, PRODUCTOS).
+- No guarda nombres, personas ni texto libre.
+
+PASOS PARA PONERLA EN MARCHA
+1. Crea una hoja de Google nueva. Ponle un nombre como "El Trigal · Producción".
+2. Importa apps-script/diario_inicial.csv como pestaña con nombre exacto "Diario". Separador: punto y coma.
+3. Extensiones > Apps Script. Pega el contenido de apps-script/Codigo.gs y cambia CLAVE.
+4. Implementar > Aplicación web. Ejecutar como: Yo. Acceso: Cualquier persona. Copia la dirección /exec.
+5. Pega esa dirección en config.js, en REGISTRO.
+6. Sube a GitHub: index.html, app.css, app.js y config.js.
+7. Después de cambiar el código: Implementar > Administrar implementaciones > Versión nueva.
+
+ANTES DE USARLA
+- Los días 15 y 16 de octubre aún no cierran; se registran cuando cierren.
+- Confirmar que el panel muestra 18,6 y 4,5 unidades por día, y costos de $10.521 y $2.867.
+- Los datos iniciales salen de la planilla corregida (03_Planilla_Trigal_CORREGIDA.xlsx).
