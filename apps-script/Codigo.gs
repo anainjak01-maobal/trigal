@@ -4,7 +4,7 @@
    Después de cada cambio: Implementar > Administrar implementaciones > Versión nueva.
    Guarda: fase, fecha, producto, horneados, sobraron. Lo demás lo calcula el servidor.
    ============================================================ */
-var CLAVE = "cambia-esta-clave";
+var CLAVE = "Trigal12345";
 var HOJA = "Diario";
 var CABECERA = ["Fase", "Fecha", "Día", "Producto", "Horneados", "Vendidos", "Sobraron", "Se acabó", "Costo de lo que sobró", "Actualizado"];
 var PRODUCTOS = { "Pan blanco": 400, "Pan de queso": 700, "Pastelito": 900, "Almojábana": 600 };
