@@ -123,3 +123,13 @@ h2 { font-size:clamp(24px,2.8vw,32px); line-height:1.15; margin:0 0 6px; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation:none !important; transition:none !important; }
 }
+
+/* ---------- Estadística ---------- */
+.stat-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px; margin-bottom:8px; }
+.stat { background:var(--card); border:1px solid var(--linea); border-radius:20px; padding:20px 22px; transition:transform .3s var(--ease), box-shadow .3s var(--ease); }
+.stat:hover { transform:translateY(-3px); box-shadow:0 16px 32px -16px rgba(59,42,30,.3); }
+.stat h3 { font-family:var(--display); font-size:20px; margin:0 0 8px; color:var(--tinta); }
+.stat p { margin:6px 0 0; font-size:14px; color:var(--tinta2); }
+.stat .big { font-family:var(--display); font-size:40px; font-weight:700; color:var(--espiga); margin:0; line-height:1.1; }
+.sub { font-family:var(--display); font-size:22px; margin:30px 0 12px; color:var(--tinta); }
+.tabla small { color:var(--tinta2); font-size:12px; }
