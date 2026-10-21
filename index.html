@@ -138,10 +138,6 @@
       <label class="campo">Producto
         <select id="r-producto" required>
           <option value="">Elige</option>
-          <option>Pan blanco</option>
-          <option>Pan de queso</option>
-          <option>Pastelito</option>
-          <option>Almojábana</option>
         </select>
       </label>
       <label class="campo">Horneados <input type="number" id="r-horneados" min="0" max="300" step="1" required/></label>
@@ -152,6 +148,19 @@
       <button class="btn primario" type="submit" id="r-guardar">Guardar</button>
       <button class="btn" type="button" id="r-limpiar">Limpiar</button>
       <p class="msg" id="r-msg" role="status"></p>
+    </div>
+  </form>
+
+  <form id="p-form" class="panel formulario" autocomplete="off">
+    <h3 class="sub">Agregar un producto nuevo</h3>
+    <p class="encabezado">Úsalo cuando el horno saque otro pan. Queda en la lista y se puede elegir al registrar.</p>
+    <div class="rejilla">
+      <label class="campo">Nombre <input type="text" id="p-nombre" maxlength="30" required/></label>
+      <label class="campo">Costo por unidad, en pesos <input type="text" inputmode="numeric" id="p-costo" maxlength="6" required/></label>
+    </div>
+    <div class="acciones">
+      <button class="btn" type="submit" id="p-guardar">Agregar producto</button>
+      <p class="msg" id="p-msg" role="status"></p>
     </div>
   </form>
 </section>
@@ -171,6 +180,6 @@
 </main>
 
 <script src="config.js?v=1"></script>
-<script src="app.js?v=5"></script>
+<script src="app.js?v=6"></script>
 </body>
 </html>

@@ -113,6 +113,12 @@
           sobraron: Number(d.sobraron) || 0, seAcabo: d.seAcabo, costo: Number(d.costo) || 0
         };
       });
+      if (r.productos && r.productos.length) {
+        PRODUCTOS = r.productos.map(function (p) { return p.nombre; });
+        COSTO = {};
+        r.productos.forEach(function (p) { COSTO[p.nombre] = p.costo; });
+        poblarProductos();
+      }
       pintarPanel();
       pintarRegistros();
     });
@@ -404,6 +410,28 @@
   }
 
   /* ---------- Registrar ---------- */
+  function poblarProductos() {
+    var sel = $("r-producto"), actual = sel.value;
+    sel.innerHTML = '<option value="">Elige</option>' + PRODUCTOS.map(function (p) { return "<option>" + esc(p) + "</option>"; }).join("");
+    if (PRODUCTOS.indexOf(actual) >= 0) sel.value = actual;
+  }
+  poblarProductos();
+
+  $("p-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var nombre = $("p-nombre").value.trim(), costo = $("p-costo").value.trim();
+    if (!nombre) { msg($("p-msg"), "Escribe el nombre del producto.", "error"); return; }
+    if (!/^\d{1,6}$/.test(costo)) { msg($("p-msg"), "El costo debe ser un número entero, sin puntos ni comas.", "error"); return; }
+    $("p-guardar").disabled = true; msg($("p-msg"), "Agregando…");
+    enviar("producto", { nombre: nombre, costo: Number(costo) }).then(function (r) {
+      $("p-guardar").disabled = false;
+      if (!r.ok) { msg($("p-msg"), r.error || "No se pudo agregar.", "error"); return; }
+      $("p-nombre").value = ""; $("p-costo").value = "";
+      msg($("p-msg"), r.mensaje || "Producto agregado.", "ok");
+      cargarTodo();
+    });
+  });
+
   function limpiarFormulario() {
     $("r-fecha").value = ""; $("r-fecha").disabled = false;
     $("r-producto").value = ""; $("r-producto").disabled = false;
