@@ -6,7 +6,7 @@
 <title>El Trigal · Registro de producción</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=DM+Sans:wght@400;500;700&display=swap"/>
-<link rel="stylesheet" href="app.css?v=3"/>
+<link rel="stylesheet" href="app.css?v=4"/>
 </head>
 <body>
 
@@ -14,28 +14,30 @@
   <div class="wrap inicio-grid">
     <div class="inicio-texto">
       <p class="kicker">Panadería El Trigal · uso interno del equipo</p>
-      <h1 class="inicio-titulo">Hornear lo que se vende, sin botar pan ni quedarse sin él.</h1>
-      <p class="inicio-lead">Cada día se anota lo que se horneó y lo que sobró. El panel muestra cuánto sobra, qué producto se acaba y si el horno nuevo cambia algo frente a agosto.</p>
-      <div class="acciones"><a class="btn primario" href="#vista-acceso" id="ir-acceso">Entrar con la clave del equipo</a></div>
-      <ol class="pasos">
-        <li><strong>Registrar</strong> lo horneado y lo sobrado de cada producto.</li>
-        <li><strong>Comparar</strong> la línea base de agosto con la prueba del horno nuevo.</li>
-        <li><strong>Decidir</strong> cuánto hornear mañana, con los límites a la vista.</li>
-      </ol>
+      <h1 class="inicio-titulo">¿Cuánto hornear mañana?</h1>
+      <p class="inicio-lead">El equipo anota cada día lo que se horneó y lo que sobró. El panel responde tres preguntas con cifras, y muestra cuánto se puede confiar en cada una.</p>
+      <div class="acciones"><a class="btn inicio-boton" href="#vista-acceso" id="ir-acceso">Abrir el panel del equipo</a></div>
+      <dl class="preguntas">
+        <div><dt>¿Cuánto sobra?</dt><dd>Promedio por día de cada producto, antes y durante la prueba.</dd></div>
+        <div><dt>¿Qué se acaba?</dt><dd>Los días en que el horno no alcanzó, con su margen de error.</dd></div>
+        <div><dt>¿El horno nuevo cambia algo?</dt><dd>La diferencia entre fases y si pudo ser azar.</dd></div>
+      </dl>
     </div>
-    <figure class="mosaico">
-      <div class="mosaico-grid" aria-hidden="true"><i class="c-cero" style="--d:0ms" title="Sobró nada"></i><i class="c-poco" style="--d:35ms" title="Sobró poco"></i><i class="c-acabo" style="--d:70ms" title="Se acabó"></i><i class="c-poco" style="--d:105ms" title="Sobró poco"></i><i class="c-cero" style="--d:140ms" title="Sobró nada"></i><i class="c-mucho" style="--d:175ms" title="Sobró bastante"></i><i class="c-cero" style="--d:210ms" title="Sobró nada"></i><i class="c-acabo" style="--d:245ms" title="Se acabó"></i><i class="c-poco" style="--d:280ms" title="Sobró poco"></i><i class="c-cero" style="--d:315ms" title="Sobró nada"></i><i class="c-mucho" style="--d:350ms" title="Sobró bastante"></i><i class="c-poco" style="--d:385ms" title="Sobró poco"></i><i class="c-cero" style="--d:420ms" title="Sobró nada"></i><i class="c-cero" style="--d:455ms" title="Sobró nada"></i><i class="c-acabo" style="--d:490ms" title="Se acabó"></i><i class="c-mucho" style="--d:525ms" title="Sobró bastante"></i><i class="c-poco" style="--d:560ms" title="Sobró poco"></i><i class="c-cero" style="--d:595ms" title="Sobró nada"></i><i class="c-cero" style="--d:630ms" title="Sobró nada"></i><i class="c-poco" style="--d:665ms" title="Sobró poco"></i><i class="c-mucho" style="--d:700ms" title="Sobró bastante"></i><i class="c-cero" style="--d:735ms" title="Sobró nada"></i><i class="c-acabo" style="--d:770ms" title="Se acabó"></i><i class="c-poco" style="--d:805ms" title="Sobró poco"></i></div>
-      <figcaption class="leyenda-mosaico">
-        <span><i class="sw" style="background:#4f7d4b"></i>Sobró nada</span>
-        <span><i class="sw" style="background:#e3a93f"></i>Sobró poco</span>
-        <span><i class="sw" style="background:#c4623a"></i>Sobró bastante</span>
-        <span><i class="sw" style="background:#6b4a2f"></i>Se acabó</span>
-      </figcaption>
-      <p class="pie-mosaico">Ilustración, no son datos reales. Cada cuadro es un día de un producto.</p>
+    <figure class="pan-figura">
+      <svg class="pan-svg" viewBox="0 0 400 300" role="img" aria-label="Pan con cortes de horneado">
+        <ellipse class="pan-sombra" cx="200" cy="246" rx="150" ry="12"/>
+        <path class="pan-cuerpo" d="M58,236 C34,150 104,58 200,58 C296,58 366,150 342,236 Z"/>
+        <path class="pan-brillo" d="M96,190 C102,128 140,92 186,84 C150,104 128,140 120,196 Z"/>
+        <path class="pan-corte" pathLength="1" style="--d:.25s" d="M150,122 L186,88"/>
+        <path class="pan-corte" pathLength="1" style="--d:.45s" d="M206,114 L246,80"/>
+        <path class="pan-corte" pathLength="1" style="--d:.65s" d="M262,146 L296,114"/>
+      </svg>
+      <figcaption>Ilustración, no son datos reales. Los cortes son lo que el horno deja marcado antes de salir.</figcaption>
     </figure>
   </div>
   <p class="wrap inicio-nota">Uso interno del equipo. Solo cuenta pan horneado y sobrante; no guarda datos de clientes.</p>
 </section>
+
 
 <header class="cab">
   <div class="wrap cab-fila">

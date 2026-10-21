@@ -137,6 +137,8 @@
       return;
     }
     var base = resumen("Línea base"), prueba = resumen("Prueba");
+    $("dias-base").textContent = base.dias;
+    $("dias-prueba").textContent = prueba.dias;
 
     /* Duelo */
     $("duelo").innerHTML =
@@ -185,7 +187,7 @@
       g += '<text x="' + cx + '" y="' + (H - pb + 28) + '" text-anchor="middle" font-size="15" font-weight="700" fill="#3b2a1e">' + esc(p) + '</text>';
     });
     $("grafico").innerHTML = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Sobrante por día y producto, línea base contra prueba">' + g + '</svg>' +
-      '<div class="leyenda"><span><i class="sw" style="background:#b9a58a"></i>Línea base (19 días)</span><span><i class="sw" style="background:#4f7d4b"></i>Prueba (6 días)</span></div>';
+      '<div class="leyenda"><span><i class="sw" style="background:#b9a58a"></i>Línea base (' + base.dias + ' días)</span><span><i class="sw" style="background:#4f7d4b"></i>Prueba (' + prueba.dias + ' días)</span></div>';
 
     /* Tabla por producto */
     var filas = PRODUCTOS.map(function (p) {
@@ -317,7 +319,7 @@
     tarjetas += '<article class="stat"><h3>Rango del promedio diario</h3>' +
       '<p>Línea base: <strong>' + n1(mediaArr(base)) + "</strong> (95 %: " + rangoN1(ib) + ").</p>" +
       '<p>Prueba: <strong>' + (prueba.length ? n1(mediaArr(prueba)) : "—") + "</strong> (95 %: " + rangoN1(ip) + ").</p>" +
-      '<p>Entre más días, más estrecho el rango. Con 6 días, el rango de la prueba es amplio.</p></article>';
+      '<p>Entre más días, más estrecho el rango. Con ' + prueba.length + ' días, el rango de la prueba es amplio.</p></article>';
 
     var dB = diasConAgotado("Línea base"), dP = diasConAgotado("Prueba");
     tarjetas += '<article class="stat"><h3>Días con algún producto agotado</h3>' +
@@ -373,7 +375,7 @@
       hg += '<text x="' + (pl - 8) + '" y="' + (hy(v) + 5) + '" text-anchor="end" font-size="13" fill="#7a6656">' + Math.round(v * 100) + " %</text>";
     });
     var histo = '<div class="panel tarjeta-grafico"><svg viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Distribución del sobrante diario">' + hg + "</svg>" +
-      '<div class="leyenda"><span><i class="sw" style="background:#b9a58a"></i>Línea base: % de sus 19 días</span><span><i class="sw" style="background:#4f7d4b"></i>Prueba: % de sus 6 días</span></div></div>';
+      '<div class="leyenda"><span><i class="sw" style="background:#b9a58a"></i>Línea base: % de sus ' + base.length + ' días</span><span><i class="sw" style="background:#4f7d4b"></i>Prueba: % de sus ' + prueba.length + ' días</span></div></div>';
 
     /* Calidad de datos */
     var claves = {}, dup = 0, excede = 0, lunesPrueba = 0;
