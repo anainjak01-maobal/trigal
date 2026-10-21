@@ -6,8 +6,10 @@
    ============================================================ */
 var CLAVE = "Trigal12345";
 var HOJA = "Diario";
+var SS_ID = "1SNxNmvnbhtrOgaYIzRGI1ie8dzx3L0bdsdl5Vni9Wvg";
+var ZONA = "America/Bogota";
 var CABECERA = ["Fase", "Fecha", "Día", "Producto", "Horneados", "Vendidos", "Sobraron", "Se acabó", "Costo de lo que sobró", "Actualizado"];
-var PRODUCTOS = { "Pan blanco": 400, "Pan de queso": 700, "Pastelito": 900, "Almojábana": 600 };
+var PRODUCTOS_INICIALES = [["Pan blanco", 400], ["Pan de queso", 700], ["Pastelito", 900], ["Almojábana", 600]];
 var INICIO_LINEA_BASE = "2026-08-11";
 var INICIO_PRUEBA = "2026-10-06";
 var FIN_REGISTRO = "2026-12-31";
@@ -25,7 +27,8 @@ function doPost(e) {
     if (String(p.clave || "") !== CLAVE) return salida({ ok: false, error: "Clave incorrecta." });
     var accion = String(p.accion || "");
     if (accion === "verificar") return salida({ ok: true, mensaje: "Clave correcta." });
-    if (accion === "listar") return salida({ ok: true, datos: leerDatos() });
+    if (accion === "listar") return salida({ ok: true, datos: leerDatos(), productos: listaProductos() });
+    if (accion === "producto") return salida(agregarProducto(p));
     if (accion === "guardar") return salida(guardar(p));
     if (accion === "borrar") return salida(borrar(p));
     return salida({ ok: false, error: "Acción no reconocida." });
@@ -41,7 +44,7 @@ function salida(obj) {
 }
 
 function hoja() {
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var ss = SpreadsheetApp.openById(SS_ID);
   var h = ss.getSheetByName(HOJA);
   if (!h) {
     h = ss.insertSheet(HOJA);
@@ -51,8 +54,48 @@ function hoja() {
   return h;
 }
 
+/* Hoja "Productos": nombre y costo por unidad. Se crea sola la primera vez. */
+function hojaProductos() {
+  var ss = SpreadsheetApp.openById(SS_ID);
+  var h = ss.getSheetByName("Productos");
+  if (!h) {
+    h = ss.insertSheet("Productos");
+    h.getRange(1, 1, 1, 3).setValues([["Producto", "Costo unitario", "Actualizado"]]).setFontWeight("bold");
+    h.setFrozenRows(1);
+    var ahora = Utilities.formatDate(new Date(), zona(), "yyyy-MM-dd HH:mm");
+    h.getRange(2, 1, PRODUCTOS_INICIALES.length, 3).setValues(PRODUCTOS_INICIALES.map(function (p) { return [p[0], p[1], ahora]; }));
+  }
+  return h;
+}
+
+function listaProductos() {
+  var h = hojaProductos();
+  var ultima = h.getLastRow();
+  if (ultima < 2) return [];
+  return h.getRange(2, 1, ultima - 1, 2).getValues().filter(function (f) { return texto(f[0]) !== ""; }).map(function (f) {
+    return { nombre: texto(f[0]), costo: numero(f[1]) || 0 };
+  });
+}
+
+function mapaProductos() {
+  var m = {};
+  listaProductos().forEach(function (p) { m[p.nombre] = p.costo; });
+  return m;
+}
+
+function agregarProducto(p) {
+  var nombre = texto(p.nombre);
+  if (nombre.length < 2 || nombre.length > 30) return { ok: false, error: "El nombre debe tener entre 2 y 30 letras." };
+  var costo = numero(p.costo);
+  if (costo === null || costo < 0 || costo > 100000 || Math.floor(costo) !== costo) return { ok: false, error: "El costo debe ser un número entero entre 0 y 100000." };
+  var existe = listaProductos().some(function (x) { return x.nombre.toLowerCase() === nombre.toLowerCase(); });
+  if (existe) return { ok: false, error: "Ese producto ya existe." };
+  hojaProductos().appendRow([nombre, costo, Utilities.formatDate(new Date(), zona(), "yyyy-MM-dd HH:mm")]);
+  return { ok: true, mensaje: nombre + " agregado." };
+}
+
 function zona() {
-  return SpreadsheetApp.getActiveSpreadsheet().getSpreadsheetTimeZone();
+  return ZONA;
 }
 
 /* Las fechas llegan como texto ISO o como fecha de Sheets: se normalizan a AAAA-MM-DD */
@@ -104,11 +147,11 @@ function leerDatos() {
   });
 }
 
-function validarFila(f) {
+function validarFila(f, mapa) {
   var fecha = fechaTexto(f.fecha);
   if (!/^\d{4}-\d{2}-\d{2}$/.test(fecha)) return "La fecha debe tener formato AAAA-MM-DD.";
   if (fecha < INICIO_LINEA_BASE || fecha > FIN_REGISTRO) return "La fecha debe estar entre el 11 de agosto y el 31 de diciembre de 2026.";
-  if (!PRODUCTOS.hasOwnProperty(texto(f.producto))) return "Elige un producto de la lista.";
+  if (!mapa.hasOwnProperty(texto(f.producto))) return "Elige un producto de la lista.";
   var horneados = numero(f.horneados);
   if (horneados === null || horneados < 0 || horneados > 300 || Math.floor(horneados) !== horneados) return "Horneados debe ser un número entero entre 0 y 300.";
   var sobraron = numero(f.sobraron);
@@ -130,7 +173,8 @@ function buscarFila(h, fecha, producto) {
 
 function guardar(p) {
   var f = p.fila || {};
-  var err = validarFila(f);
+  var mapa = mapaProductos();
+  var err = validarFila(f, mapa);
   if (err) return { ok: false, error: err };
   var fecha = fechaTexto(f.fecha);
   var producto = texto(f.producto);
@@ -138,7 +182,7 @@ function guardar(p) {
   var sobraron = numero(f.sobraron);
   var vendidos = horneados - sobraron;
   var seAcabo = sobraron === 0 ? "Sí" : "No";
-  var costo = sobraron * PRODUCTOS[producto];
+  var costo = sobraron * mapa[producto];
   var datos = [
     faseDe(fecha), fecha, nombreDia(fecha), producto, horneados, vendidos, sobraron, seAcabo, costo,
     Utilities.formatDate(new Date(), zona(), "yyyy-MM-dd HH:mm")
