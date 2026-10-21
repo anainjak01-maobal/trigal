@@ -6,9 +6,36 @@
 <title>El Trigal · Registro de producción</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=DM+Sans:wght@400;500;700&display=swap"/>
-<link rel="stylesheet" href="app.css?v=2"/>
+<link rel="stylesheet" href="app.css?v=3"/>
 </head>
 <body>
+
+<section class="inicio" id="inicio">
+  <div class="wrap inicio-grid">
+    <div class="inicio-texto">
+      <p class="kicker">Panadería El Trigal · uso interno del equipo</p>
+      <h1 class="inicio-titulo">Hornear lo que se vende, sin botar pan ni quedarse sin él.</h1>
+      <p class="inicio-lead">Cada día se anota lo que se horneó y lo que sobró. El panel muestra cuánto sobra, qué producto se acaba y si el horno nuevo cambia algo frente a agosto.</p>
+      <div class="acciones"><a class="btn primario" href="#vista-acceso" id="ir-acceso">Entrar con la clave del equipo</a></div>
+      <ol class="pasos">
+        <li><strong>Registrar</strong> lo horneado y lo sobrado de cada producto.</li>
+        <li><strong>Comparar</strong> la línea base de agosto con la prueba del horno nuevo.</li>
+        <li><strong>Decidir</strong> cuánto hornear mañana, con los límites a la vista.</li>
+      </ol>
+    </div>
+    <figure class="mosaico">
+      <div class="mosaico-grid" aria-hidden="true"><i class="c-cero" style="--d:0ms" title="Sobró nada"></i><i class="c-poco" style="--d:35ms" title="Sobró poco"></i><i class="c-acabo" style="--d:70ms" title="Se acabó"></i><i class="c-poco" style="--d:105ms" title="Sobró poco"></i><i class="c-cero" style="--d:140ms" title="Sobró nada"></i><i class="c-mucho" style="--d:175ms" title="Sobró bastante"></i><i class="c-cero" style="--d:210ms" title="Sobró nada"></i><i class="c-acabo" style="--d:245ms" title="Se acabó"></i><i class="c-poco" style="--d:280ms" title="Sobró poco"></i><i class="c-cero" style="--d:315ms" title="Sobró nada"></i><i class="c-mucho" style="--d:350ms" title="Sobró bastante"></i><i class="c-poco" style="--d:385ms" title="Sobró poco"></i><i class="c-cero" style="--d:420ms" title="Sobró nada"></i><i class="c-cero" style="--d:455ms" title="Sobró nada"></i><i class="c-acabo" style="--d:490ms" title="Se acabó"></i><i class="c-mucho" style="--d:525ms" title="Sobró bastante"></i><i class="c-poco" style="--d:560ms" title="Sobró poco"></i><i class="c-cero" style="--d:595ms" title="Sobró nada"></i><i class="c-cero" style="--d:630ms" title="Sobró nada"></i><i class="c-poco" style="--d:665ms" title="Sobró poco"></i><i class="c-mucho" style="--d:700ms" title="Sobró bastante"></i><i class="c-cero" style="--d:735ms" title="Sobró nada"></i><i class="c-acabo" style="--d:770ms" title="Se acabó"></i><i class="c-poco" style="--d:805ms" title="Sobró poco"></i></div>
+      <figcaption class="leyenda-mosaico">
+        <span><i class="sw" style="background:#4f7d4b"></i>Sobró nada</span>
+        <span><i class="sw" style="background:#e3a93f"></i>Sobró poco</span>
+        <span><i class="sw" style="background:#c4623a"></i>Sobró bastante</span>
+        <span><i class="sw" style="background:#6b4a2f"></i>Se acabó</span>
+      </figcaption>
+      <p class="pie-mosaico">Ilustración, no son datos reales. Cada cuadro es un día de un producto.</p>
+    </figure>
+  </div>
+  <p class="wrap inicio-nota">Uso interno del equipo. Solo cuenta pan horneado y sobrante; no guarda datos de clientes.</p>
+</section>
 
 <header class="cab">
   <div class="wrap cab-fila">
@@ -142,6 +169,6 @@
 </main>
 
 <script src="config.js?v=1"></script>
-<script src="app.js?v=3"></script>
+<script src="app.js?v=4"></script>
 </body>
 </html>
